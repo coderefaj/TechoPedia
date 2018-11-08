@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+
+	<div class="home">
+		<h1> Dev Nation </h1>
+		<h4> Talk is cheap , Show me the Code </h4> 
+	</div>
+<center>
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  {{ user.team_name }}
+  <p><a href="{% url 'logout' %}"><button class="btn btn-danger">logout</button></a></p></center>
+{% else %}
+  <center>
+  <h4 style="font-family:pacifio">Ready for battle</h4>
+  <a href="{% url 'login' %}"><button class="btn btn-primary">Login</button> </a> 
+  <a href="{% url 'signup' %}"><button class="btn btn-success">Signup</button></a>
+</center>
+{% endif %}
+{% endblock %}

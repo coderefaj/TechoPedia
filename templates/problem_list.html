@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+
+	<div class="home_prob">
+		<h1> Dev Nation </h1>
+		<h4> Talk is cheap , Show me the Code </h4> 
+	</div>
+
+  
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Problem Name</th>
+        <th>Problem Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for prblm in problem_list %}
+      <tr>
+        <td>{{ prblm.id }}</td>
+        <td>{{ prblm.name }}</td>
+        <td><a href="ques/{{ prblm.id }}">Link</a></td>
+     </tr>   
+     {% endfor %}
+   </tbody>
+ </table>
+</div>
+
+{% endblock %}

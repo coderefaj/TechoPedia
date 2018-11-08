@@ -1,0 +1,58 @@
+<!DOCTYPE html >
+<!--
+Design by Lazy Swapper
+https://syedjafer.me
+Released for free under the Creative Commons Attribution License
+
+Name       : Python4all
+Description: An free initiative for learning
+-->
+<html>
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Python4all</title>
+{% load staticfiles %}
+<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+	<!-- Bootstrap theme -->
+	<link href="{% static "css/bootstrap-theme.min.css" %}" rel="stylesheet">
+<style>
+.nav{
+	padding : 6px 6px 6px 6px;
+	font-size: 20px !important;
+
+
+
+}
+</style>
+
+</head>
+<body>
+
+{% load crispy_forms_tags %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+
+
+
+<div class= 'col-md-4 col-md-offset-4'>
+
+<h1>{% trans "Sign Out" %}</h1>
+
+<p>{% trans 'Are you sure you want to sign out?' %}</p>
+
+<form method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+  {% endif %}
+  <button class = 'btn btn-default' type="submit">{% trans 'Sign Out' %}</button>
+</form>
+</div>
+
+
+</body>
+</html>

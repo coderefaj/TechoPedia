@@ -1,0 +1,206 @@
+{% load staticfiles %}
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- Third party -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/ace.js"></script>
+<!-- Selecting Programming language -->
+<!--  -->
+
+<script type="text/javascript">
+    var program = document.getElementById("programming_lang");
+    var slctd_prgm  = program.options[program.selectedIndex].value;
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    var mode = "ace/mode/"+"python" ;
+    editor.session.setMode(mode);
+
+    $("#programming_lang").click(function(){
+    var program = document.getElementById("programming_lang");
+    var slctd_prgm  = program.options[program.selectedIndex].value;
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    var mode = "ace/mode/"+slctd_prgm ;
+    editor.session.setMode(mode);
+    console.log(mode);
+   	});
+
+   	// Timer update
+document.getElementById('timer').innerHTML = "{{ time.minutes }}"+":"+"{{ time.seconds }}" ;
+startTimer();
+
+
+function startTimer() {
+  var presentTime = document.getElementById('timer').innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond((timeArray[1] - 1));
+
+  if(s==59){m=m-1;console.log("asdasdasdas");}
+  if(m<0){
+    $.ajax({
+      type: "GET",
+      url: "/users/logout",
+      success: function(result){
+        console.log("OK");
+        },
+      error : function(result){
+        console.log("ERROR");
+        }
+          });
+        }
+  document.getElementById('timer').innerHTML = m + ":" + s;
+    if(m >= 0 && s > 0)
+        setTimeout(startTimer, 1000); // Send Post for every 10 sec
+}
+
+
+function sendTime(){
+  var arr = document.getElementById("timer").innerHTML.split(":");
+
+  $.ajax({
+      type: "POST",
+      url: "/problem/timeit",
+      data :{
+        minutes : arr[0] ,
+        seconds : arr[1] ,
+        csrfmiddlewaretoken: '{{ csrf_token }}'
+      },
+      success: function(result){
+        console.log("OK",arr[0],arr[1]);
+
+      },
+      error : function(result){
+        console.log("ERROR");
+      }
+
+    });
+}
+setInterval(sendTime, 10000);
+
+
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+  if (sec == 0) {sec = "59"};
+  return sec;
+}
+
+// To execute when run button is pressed
+var id = {{ problem.id }} ;
+
+
+$(document).ready(function(){
+  $("#run_button").click(function(e){
+    e.preventDefault();
+    var pl = document.getElementById("programming_lang");
+    var programming_lang = pl.options[pl.selectedIndex].value;
+    // console.log(programming_lang);
+    $.ajax({
+        type: "POST",
+        url: "/problem/ques/"+id+"/execute",
+        data :{
+          code : editor.getValue(),
+          programming_lang : programming_lang,
+          csrfmiddlewaretoken: '{{ csrf_token }}'
+              },
+        success: function(result){
+           $('#testcase_output').empty();
+           var res = JSON.parse(result) ;
+           console.log(res);
+           document.getElementById("output").innerText = res["case_1"]["stdout"] ;
+           document.getElementById("error").innerText = res["case_1"]["stderr"] ;
+           var count = Object.keys(res).length;
+           // console.log(count);
+           for (itr=1;itr<count+1;itr++)
+              {
+                var cases = "case_"+itr;
+                console.log(cases);
+                console.log(res[cases]["pass"]);
+                console.log(itr);
+                if(res[cases]["pass"] == true)
+                {
+                  $('#testcase_output').append(' <img src="{% static "images/correct.png" %}" alt="Smiley face" height="42" width="42"> <div class="col-sm-3" id="testcase_passed"> Testcase '+ itr +' passed </div>');
+                }
+                if(res[cases]["pass"] == false){
+                  $('#testcase_output').append('<img src="{% static "images/wrong.png" %}" alt="" height="42" width="42"><div class="col-sm-3" id="testcase_passed"> Testcase '+ itr +' Failed </div>');
+                  }
+              }
+            },
+            error : function(result){
+              console.log("Obtained Result"+result);
+            }
+           });
+        });
+      });
+
+// To Submit
+$(document).ready(function(){
+  $("#submit_button").click(function(e){
+      e.preventDefault();
+      var ee = document.getElementById("programming_lang");
+      var programming_lang = ee.options[ee.selectedIndex].value;
+      console.log(programming_lang);
+      $.ajax({
+        type: "POST",
+        url: "/problem/ques/"+id+"/submit",
+        data :{
+          code : editor.getValue(),
+          programming_lang : programming_lang,
+          csrfmiddlewaretoken: '{{ csrf_token }}'
+            },
+        success: function(result){
+          $('#testcase_output').empty();
+          var res = JSON.parse(result) ;
+          console.log(res);
+          document.getElementById("output").innerText = res["case_1"]["stdout"] ;
+          document.getElementById("error").innerText = res["case_1"]["stderr"] ;
+          var count = Object.keys(res).length;
+          // console.log(count);
+          for (itr=1;itr<count+1;itr++)
+              {
+                var cases = "case_"+itr;
+                console.log(cases);
+                console.log(res[cases]["pass"]);
+                console.log(itr);
+                if(res[cases]["pass"] == true)
+                {
+                  $('#testcase_output').append(' <img src="{% static "images/correct.png" %}" alt="Smiley face" height="42" width="42"> <div class="col-sm-3" id="testcase_passed"> Testcase '+ itr +' passed </div>');
+                }
+                if(res[cases]["pass"] == false){
+                  $('#testcase_output').append('<img src="{% static "images/wrong.png" %}" alt="" height="42" width="42"><div class="col-sm-3" id="testcase_passed"> Testcase '+ itr +' Failed </div>');
+                }
+              }
+            },
+            error : function(result){
+              console.log("sadasd"+result);
+            }
+
+          });
+        });
+      });
+
+// To save Code
+function saveCode(){
+  var code_ = editor.getValue();
+  // console.log("in Save code");
+  $.ajax({
+    type: "POST",
+    url: "/problem/save",
+    data :{
+      code : code_ ,
+      csrfmiddlewaretoken : '{{csrf_token}}' ,
+    },
+    success: function(result){
+
+      console.log("File Saved");
+    },
+    error : function(result){
+      console.log("File not saved ");
+    }
+  });
+}
+setInterval(saveCode, 100000);
+
+</script>

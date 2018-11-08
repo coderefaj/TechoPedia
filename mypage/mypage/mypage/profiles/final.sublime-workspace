@@ -1,0 +1,605 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pr",
+				"profiles"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"Con",
+				"conf"
+			],
+			[
+				"email",
+				"emailTo"
+			],
+			[
+				"ema",
+				"emailForm"
+			],
+			[
+				"c",
+				"contacts"
+			],
+			[
+				"javasc",
+				"javascript"
+			],
+			[
+				"File",
+				"File	File.foreach (\"..\") { |line| .. }"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "\n\nACCOUNT_AUTHENTICATION_METHOD = “username_email”\nACCOUNT_CONFIRM_EMAIL_ON_GET = False\nACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = LOGIN_URL\nACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = None\n\nACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS =3\nACCOUNT_EMAIL_REQUIRED =False\nACCOUNT_EMAIL_VERIFICATION =None\nACCOUNT_EMAIL_SUBJECT_PREFIX = \"My Subjects : \"\nACCOUNT_DEFAULT_HTTP_PROTOCOL =”http”\n\nACCOUNT_LOGOUT_ON_GET =False\nACCOUNT_LOGOUT_REDIRECT_URL =”/”\nACCOUNT_SIGNUP_FORM_CLASS =None\nACCOUNT_SIGNUP_PASSWORD_VERIFICATION = True\nACCOUNT_UNIQUE_EMAIL =True\nACCOUNT_USER_MODEL_EMAIL_FIELD =”email”\nACCOUNT_USER_MODEL_USERNAME_FIELD =”username”\nACCOUNT_USERNAME_MIN_LENGTH =5\n\nACCOUNT_USERNAME_REQUIRED =True\nACCOUNT_USERNAME_BLACKLIST = []\nACCOUNT_PASSWORD_INPUT_RENDER_VALUE = False\nACCOUNT_PASSWORD_MIN_LENGTH = 6\nACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True\n   \n\n",
+			"settings":
+			{
+				"buffer_size": 875,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views.py",
+			"settings":
+			{
+				"buffer_size": 478,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/profile.html",
+			"settings":
+			{
+				"buffer_size": 100,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/syedjafer/Documents/python/django/tryTen/src/tryTen/urls.py",
+			"settings":
+			{
+				"buffer_size": 1400,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/home.html",
+			"settings":
+			{
+				"buffer_size": 2341,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/base.html",
+			"settings":
+			{
+				"buffer_size": 2655,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/about.html",
+			"settings":
+			{
+				"buffer_size": 94,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/syedjafer/Documents/python/django/tryTen/src/contact/templates/contact.html",
+			"settings":
+			{
+				"buffer_size": 426,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<nav class=\"navbar navbar-default navbar-fixed-top\">\n      <div class=\"container\">\n        <div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n          <a class=\"navbar-brand\" href=\"#\">eduforall community</a>\n        </div>\n        <div id=\"navbar\" class=\"navbar-collapse collapse\">\n          <ul class=\"nav navbar-nav\">\n            {% url 'home' as home %}\n\n             {% url 'about' as about %}\n             {% url 'contact' as contact %}\n            <li {% if request.path == home  %} class=\"active\" {% endif %}><a href=\"{% url 'home' %}\">Home</a></li>\n            <li {% if request.path == about  %} class=\"active\" {% endif %}><a href=\"{% url 'about' %}\">About</a></li>\n            <li {% if request.path == contact  %} class=\"active\" {% endif %}><a href=\"{% url 'contact' %}\">Contact</a></li>\n            <li class=\"dropdown\">\n              <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Account <span class=\"caret\"></span></a>\n              <ul class=\"dropdown-menu\">\n               {% if not request.user.is_authenticated %}\n                <li><a href=\"{% url 'account_login' %}\">Login</a></li>\n                <li><a href=\"{% url 'account_signup' %}\">Signup</a></li>\n               {% else %}\n                <li><a href=\"{% url 'account_logout' %}\">Logout</a></li>\n               {% endif %}\n                <li role=\"separator\" class=\"divider\"></li>\n                <li class=\"dropdown-header\">Nav header</li>\n                <li><a href=\"#\">Separated link</a></li>\n                <li><a href=\"#\">One more separated link</a></li>\n              </ul>\n            </li>\n          </ul>\n        </div><!--/.nav-collapse -->\n      </div>\n    </nav>",
+			"file": "templates/navbar.html",
+			"file_size": 2067,
+			"file_write_time": 1484483100000000,
+			"settings":
+			{
+				"buffer_size": 2067,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/syedjafer/Documents/python/tryTen/src/tryTen/settings.py",
+			"settings":
+			{
+				"buffer_size": 4988,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/syedjafer/Documents/python/django/tryTen/src/contact/templates/contact.html",
+		"/home/syedjafer/Documents/python/django/tryTen/src/profiles/templates/account/signup.html",
+		"/home/syedjafer/Documents/python/django/tryTen/src/profiles/templates/account/login.html",
+		"/home/syedjafer/Documents/python/django/tryTen/src/profiles/templates/account/logout.html",
+		"/home/syedjafer/Documents/python/django/tryTen/src/profiles/views.py",
+		"/home/syedjafer/Documents/python/django/tryTen/src/profiles/templates/navbar.html",
+		"/home/syedjafer/Documents/python/django/tryTen/src/tryTen/urls.py",
+		"/home/syedjafer/Documents/python/django/tryTen/src/contact/forms.py",
+		"/home/syedjafer/Documents/python/django/tryTen/src/contact/views.py",
+		"/home/syedjafer/Documents/python/django/tryTen/src/tryTen/settings.py",
+		"/home/syedjafer/Documents/python/django/tryTen/src/profiles/templates/about.html",
+		"/home/syedjafer/Documents/python/django/tryTen/src/profiles/templates/home.html",
+		"/home/syedjafer/Documents/python/django/tryTen/static/static/css/main.css",
+		"/home/syedjafer/Documents/python/django/tryTen/src/profiles/templates/base.html",
+		"/home/syedjafer/Documents/python/django/tryTen/static/static/css/bootstrap.min.css",
+		"/home/syedjafer/A /mysite/Untitled Folder/me.html",
+		"/home/syedjafer/Templates/send_mail.php",
+		"/home/syedjafer/Templates/templatemo_481_elevate/css/magnific-popup.css",
+		"/home/syedjafer/Documents/python/django/survivalguide/.gitignore",
+		"/home/syedjafer/Templates/minimal/theme/send_mail.php",
+		"/home/syedjafer/Templates/templatemo_481_elevate/css/bootstrap.min.css",
+		"/home/syedjafer/Templates/templatemo_481_elevate/css/templatemo-style.css",
+		"/home/syedjafer/A /me.html",
+		"/home/syedjafer/A /moinudeen.github.io-master/atom.xml",
+		"/home/syedjafer/A /moinudeen.github.io-master/static/css/main.css",
+		"/home/syedjafer/A /moinudeen.github.io-master/static/css/syntax.css",
+		"/home/syedjafer/Documents/LIST OF COLL /keralaengg.txt",
+		"/home/syedjafer/Documents/python/django/mysit/mysit/settings.py",
+		"/home/syedjafer/ruby1.rb",
+		"/home/syedjafer/Documents/python/projects/XO/main.py",
+		"/home/syedjafer/m.html",
+		"/home/syedjafer/A /m.html",
+		"/etc/apache2/conf-available/javascript-common.conf",
+		"/home/syedjafer/Downloads/auto grader/tsugi-master/lti/store/index.php",
+		"/home/syedjafer/.bashrc",
+		"/home/syedjafer/Documents/python/projects/HTML/web/jp.html",
+		"/home/syedjafer/asiamma.txt",
+		"/home/syedjafer/Documents/python/projects/typing-tutor/typingtutor.py",
+		"/home/syedjafer/code/geodata/geoload.py",
+		"/home/syedjafer/Documents/python/projects/typingtutor.py",
+		"/home/syedjafer/Documents/python/projects/typ_practice.py",
+		"/home/syedjafer/Documents/python/projects/typ_tips.py",
+		"/home/syedjafer/Documents/python/projects/typ_test.py",
+		"/home/syedjafer/Documents/python/projects/typ_cal.py",
+		"/home/syedjafer/Documents/python/projects/typing-tutor/typ_tips.py",
+		"/home/syedjafer/.bash_history",
+		"/home/syedjafer/track.py",
+		"/home/syedjafer/code/emaild.py",
+		"/home/syedjafer/encrypt.py",
+		"/home/syedjafer/ceser.py",
+		"/home/syedjafer/lis.py",
+		"/home/syedjafer/rf1.py",
+		"/home/syedjafer/istory",
+		"/home/syedjafer/.bash_h",
+		"/home/syedjafer/Documents/python/coursera/rf.py",
+		"/home/syedjafer/Documents/python/coursera/rfile.py",
+		"/home/syedjafer/Documents/python/coursera/rfil.py",
+		"/home/syedjafer/bash_history",
+		"/etc/shadow",
+		"/etc/passwd",
+		"/home/syedjafer/list.txt",
+		"/home/syedjafer/m.txt",
+		"/home/syedjafer/tk.py",
+		"/home/syedjafer/TKinter",
+		"/home/syedjafer/dwnld_fls.py",
+		"/home/syedjafer/code/grep.py",
+		"/home/syedjafer/code/hif.py",
+		"/home/syedjafer/code/geo.py",
+		"/home/syedjafer/hif.py",
+		"/home/syedjafer/code/xmlass.py",
+		"/home/syedjafer/.bash_aliases",
+		"/home/syedjafer/xml1.py",
+		"/home/syedjafer/new.txt",
+		"/home/syedjafer/l.txt",
+		"/home/syedjafer/p.txt",
+		"/home/syedjafer/email.py",
+		"/home/syedjafer/words.py"
+	],
+	"find":
+	{
+		"height": 246.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"total",
+			"pc",
+			"#"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": true,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 9,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"settings":
+					{
+						"buffer_size": 875,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								875,
+								875
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "views.py",
+					"settings":
+					{
+						"buffer_size": 478,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								63,
+								63
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/profile.html",
+					"settings":
+					{
+						"buffer_size": 100,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								100,
+								100
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/syedjafer/Documents/python/django/tryTen/src/tryTen/urls.py",
+					"settings":
+					{
+						"buffer_size": 1400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1105,
+								1105
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "templates/home.html",
+					"settings":
+					{
+						"buffer_size": 2341,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15,
+								15
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "templates/base.html",
+					"settings":
+					{
+						"buffer_size": 2655,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								491,
+								491
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "templates/about.html",
+					"settings":
+					{
+						"buffer_size": 94,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								74,
+								74
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/syedjafer/Documents/python/django/tryTen/src/contact/templates/contact.html",
+					"settings":
+					{
+						"buffer_size": 426,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "templates/navbar.html",
+					"settings":
+					{
+						"buffer_size": 2067,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								544,
+								544
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/home/syedjafer/Documents/python/tryTen/src/tryTen/settings.py",
+					"settings":
+					{
+						"buffer_size": 4988,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1248,
+								1248
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 756.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 453.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 207.0,
+	"status_bar_visible": true
+}

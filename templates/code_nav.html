@@ -1,0 +1,28 @@
+{% load staticfiles %}
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/" id="general_heading"> DevNation </a>
+          {{ request.user.username }}
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="dropdown" >
+            
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      Problems
+    </button>
+  <ul class="dropdown-menu">
+              {% for prblm in total %}
+              <li><a href="/problem/ques/{{ prblm.id}}">{{ prblm.name }} {% if  prblm.status == true %}  Atempted {% else %} Not Attempted {% endif %}</a></li>
+              {% endfor %}
+              <li>asdsa</li>
+            </ul>
+          </li>
+      </ul>
+      <li>
+        <div>
+          <span id="timer"></span>
+        </div>
+      </li>
+      </nav>
+    <br>

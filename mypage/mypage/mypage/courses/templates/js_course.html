@@ -1,0 +1,122 @@
+<!DOCTYPE html >
+<!--
+Design by Lazy Swapper
+https://syedjafer.me
+Released for free under the Creative Commons Attribution License
+
+Name       : Python4all
+Description: An free initiative for learning
+-->
+<html>
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Python4all</title>
+{% load staticfiles %}
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="screen" />
+<link href="{% static 'css/vs.css' %}" rel="stylesheet" type="text/css" media="screen" />
+
+<style>
+.nav{
+	padding : 6px 6px 6px 6px;
+}
+.fontt{
+
+
+  white-space: pre;
+
+}
+</style>
+
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="#">JavaScript</a></h1>
+				</div>
+			<div id="menu">
+				<ul>
+
+
+         <li class="nav"><a href="{% url 'home' %}" accesskey="1" title="">Home</a></li>
+        <li class="nav"><a href="https://pipinstall.blogspot.in/" accesskey="3" title="">Blog</a></li>
+				 <li class="nav"><a href="{% url 'contact' %}" accesskey="4" title="">Contact us</a></li>
+
+         <li class="nav"><a href="{% url 'account_logout' %}" accesskey="5" title="">Logout {{request.user}}</a></li>
+
+
+        </ul>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	{% load pygmentify %}
+	{% pygment %}
+	<div id="page">
+		<div id="content">
+
+			{% for post in Content %}
+			<div class="post">
+
+				<h2 class="title" id={{post.id}}>{{post.title}}</h2>
+				<!-- <p class="meta"><span class="author"><a href="#">Someone</a></span> <span class="date">October 07, 2011</span>&nbsp;<span class="links"><a href="#" title="">Comments</a></span></p> -->
+                 <p class="meta"><span class="author"><a href="{{post.link}}">{{post.author}}</a></span> <span class="date">{{post.date}}</span>
+                <div class="fontt">
+					{{post.content|safe}}
+				</div>
+			</div>
+			{% endfor %}
+
+		</div>
+	</div>
+	{% endpygment %}
+
+
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Search</h2>
+					<div id="search" >
+						<form method="get" action="#">
+							<div>
+								<input type="text" name="s" id="search-text" value="" />
+								<input type="submit" id="search-submit" value="GO" />
+							</div>
+						</form>
+					</div>
+					<div style="clear: both;">&nbsp;</div>
+				</li>
+				<li>
+					<h2>Python4all</h2>
+					<p>A Free Learning Initiative . By us , For us .</p>
+				</li>
+				<li>
+					<h2>Categories</h2>
+					<ul>
+						{% for post in Content %}
+						<li><a href="#{{post.id}}">{{post.tile}}</a></li>
+						{% endfor %}
+					</ul>
+				</li>
+
+
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+</div>
+
+
+<!-- Since the footer in index.html is prefered its maintained there -->
+<div id="footer">
+	<p>&copy; <a href="https://syedjafer.me">Syedjafer .</a> All rights reserved. </p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

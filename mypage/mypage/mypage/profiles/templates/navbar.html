@@ -1,0 +1,51 @@
+{% load staticfiles %}
+<nav class="navbar navbar-default navbar-fixed-top" id="navs" style="background-color:#C0C0C0;">
+      <div class="container" style="background-color:#C0C0C0;">
+        <div class="navbar-header" style="background-color:#C0C0C0;">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="{% url 'home' %}" class="brand-logo"><img class="img-responsive" style="width:50px; height;50px; margin-top:5px" src="{% static '/img/Python.svg.png' %}"></a>
+          <!-- <a class="navbar-brand" href="{% url 'home' %}"></a> -->
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" style="background-color:#C0C0C0;">
+          <ul class="nav navbar-nav" style="background-color:#C0C0C0;">
+            {% url 'home' as home %}
+
+             {% url 'about' as about %}
+             {% url 'contact' as contact %}
+             {% url 'blog' as feed %}
+            <li {% if request.path == home  %} class="active" {% endif %}><a href="{% url 'home' %}">Home</a></li>
+            <li {% if request.path == about  %} class="active" {% endif %}><a href="{% url 'about' %}">About</a></li>
+            <li {% if request.path == contact  %} class="active" {% endif %}><a href="{% url 'contact' %}">Contact</a></li>
+            <li {% if request.path == blog  %} class="active" {% endif %}><a href="https://pipinstall.blogspot.in/">Blog</a></li>
+            {% if not request.user.is_authenticated %}
+            <li class="dropdown">
+
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+
+                <li><a href="{% url 'account_login' %}">Login</a></li>
+                <li><a href="{% url 'account_signup' %}">Signup</a></li>
+               {% else %}
+               <li class="dropdown">
+
+
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ request.user }} <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+
+                <li><a href="{% url 'account_logout' %}">Logout</a></li>
+               {% endif %}
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>

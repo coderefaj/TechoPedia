@@ -1,0 +1,107 @@
+ body{
+            background-color: black !important;
+            color : white;
+            /*font-size: 20px;*/
+        }
+        #editor { 
+            top: 50%;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding : 10px 10px 10px 10px;
+            margin: 10px 10px 10px 10px ;
+            border-radius: 5px;
+            font-size: 20px;
+            height : 400px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            }
+       
+
+        #ques {
+           
+            left : 10px ;
+            /*overflow: scroll;*/
+        }
+        .question_display {
+            background-color: #060606;
+            border-radius: 5px ;
+            color : #dde6dc;
+            padding: 0 10px 10px 10px ;
+            font-size: 19px;
+
+          
+        }
+        #programming_lang{
+            border-radius: 5px ;
+            margin : 10px 10px 10px 10px;
+            background-color: #19ae07;
+            padding : 10px 10px 10px 10px ;
+            margin-left: 50px ;
+        }
+        #test_case {
+            border-radius: 5px ;
+            
+
+        }
+        .group_center{
+            margin : 0 50px 0 50px ;
+        }
+        .input{
+            float:left;
+            text-align: center;
+        }
+        .output{
+            
+            text-align: center;
+        }
+        .navbar{
+            background-color: black !important;
+            color : #dde6dc;
+            border-color: black;
+        }
+        #run{
+            float: right;
+            margin-top: 20px;
+        }
+        #run button{
+            margin-right: 30px;    
+        }
+        #timer{
+            float: right;
+            font-size: 20px;
+            border-radius: 5px;
+            background-color: yellow;
+            color: black;
+            padding: 10px 20px 10px 20px ;
+            margin-top: 2px;
+        }
+        #output , #error , #sample_input , #sample_output{
+          border-radius: 5px;
+          padding: 10px 10px 10px 10px ;
+          margin-left: 50px ;
+          /*color : white ;*/
+          background-color: white ;
+          
+        }
+        #output , #error {
+          overflow-y: scroll;
+        }
+
+        #error{
+          color : red;
+        }
+        #general{
+          color: white ;
+          margin-left: 50px ;
+          font-size: 20px ;
+        }
+        #testcase_output{
+          color : white !important;
+          font-size: 20px;
+          margin-left: 50px;
+        }
+        #general_heading{
+            color: white;
+            font-family: pacifio ;
+        }

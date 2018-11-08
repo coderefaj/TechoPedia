@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		{% load staticfiles %}
+		<title>Python4all</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<link href="{% static 'css/default.css' %}" rel="stylesheet" type="text/css" media="all" />
+		<link href="{%static 'css/fonts.css' %}" rel="stylesheet" type="text/css" media="all" />
+	</head>
+	<body id="top">
+		<div id="wrapper">
+			<div id="header-wrapper">
+			<div id="header" class="container">
+				<div id="logo">
+					<h1><a href="#">Python4all</a></h1>
+				</div>
+				<div id="menu">
+					<ul>
+						<li><a href="/" accesskey="1" title="">Home</a></li>
+						<li><a href="/about" accesskey="2" title="">About</a></li>
+						<li><a href="https://pipinstall.blogspot.in" accesskey="3" title="">Blog</a></li>
+						<li><a href="/contact" accesskey="4" title="">Contact us</a></li>
+		        {% if not request.user.is_authenticated %}
+		        <li class="current_page_item"><a href="/#page" accesskey="5" title="">Login</a></li>
+		        {% else %}
+		        <li class="current_page_item"><a href="{% url 'account_logout' %}" accesskey="5" title="">Logout {{request.user}}</a></li>
+		        {% endif %}
+					</ul>
+				</div>
+			</div>
+			</div>
+
+			<!-- Banner -->
+			<!--
+				To use a video as your background, set data-video to the name of your video without
+				its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
+				formats to work correctly.
+			-->
+				<section id="banner" data-video="{%static 'imagess/banner.mp' %}">
+                    <video preload="preload"  id="video" autoplay="autoplay" loop="loop">
+
+                        <source src="{%static 'course/white.mp4' %}" type="video/mp4"></source>
+                    </video>
+                    <div class="inner">
+						<header>
+							<h1>Available Courses</h1>
+							<p>A collection of all courses that are been made by our contributers .</p>
+						</header>
+						<a href="#main" class="more">Learn More</a>
+					</div>
+				</section>
+
+			<!-- Main -->
+				<div id="main">
+					<div class="inner">
+
+					<!-- Boxes -->
+						<div class="thumbnails">
+
+							<div class="box">
+								<a href="python" class="image fit"><img src="{% static 'course/python.jpg' %}" alt="" /></a>
+								<div class="inner">
+									<h3>Python</h3>
+									<p>Python is one of the most popular languages today, used for a wide range of fields, from web programming, to data science, to robotics. With a strong foundation in Python programming, you'll have a good start in any of these career paths.</p>
+									<a href="python" class="button fit">Learn</a>
+								</div>
+							</div>
+
+
+							<div class="box">
+								<a href="linux" class="image fit"><img src="{% static 'course/linux.jpg' %}" alt="" /></a>
+								<div class="inner">
+									<h3>linux</h3>
+									<p>Linux is a name which broadly denotes a family of free and open-source software operating system distributions built around the Linux kernel.</p>
+									<a href="linux" class="button fit">Learn</a>
+								</div>
+							</div>
+
+
+							<div class="box">
+								<a href="git" class="image fit"><img src="{% static 'course/git.png' %}" alt="" /></a>
+								<div class="inner">
+									<h3>Git</h3>
+									<p>GIT is a version control system for tracking changes in computer files and coordinating work on those files among multiple people. </p>
+									<a href="git" class="button fit">Learn</a>
+								</div>
+							</div>
+
+							<div class="box">
+								<a href="js" class="image fit"><img src="{% static 'course/js.png' %}" alt="" /></a>
+								<div class="inner">
+									<h3>JavaScript</h3>
+									<p>JavaScript, often abbreviated as JS, is a high-level, dynamic, weakly typed, prototype-based, multi-paradigm, and interpreted programming language. </p>
+									<a href="js" class="button fit">Learn</a>
+								</div>
+							</div>
+
+							<div class="box">
+								<a href="jquery" class="image fit"><img src="{% static 'course/jquery.png' %}" alt="" /></a>
+								<div class="inner">
+									<h3>jQuery</h3>
+									<p>jQuery is a compact, swift and feature rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that runs across large number of browsers.</p>
+									<a href="jquery" class="button fit">Learn</a>
+								</div>
+
+
+							</div>
+
+							<div class="box">
+								<a href="mysql" class="image fit"><img src="{% static 'course/mysql.png' %}" alt="" /></a>
+								<div class="inner">
+									<h3>Mysql</h3>
+									<p>MySQL is a relational database that backs many internet websites and enterprise applications. </p>
+									<a href="mysql" class="button fit">Learn</a>
+								</div>
+							</div>
+
+
+
+						</div>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+
+							<ul class="icons">
+							<li><a href="https://twitter.com/5y3djaf3r" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://facebook/pythonforall" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                        
+							<li><a href="mailto:syedjafer1997@gmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Syedjafer</p>
+					</div>
+				</footer>
+
+		<!-- Scripts -->
+			<script src="{%static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{%static 'assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{%static 'assets/js/jquery.poptrox.min.js' %}"></script>
+			<script src="{%static 'assets/js/skel.min.js' %}' %}"></script>
+			<script src="{%static 'assets/js/util.js' %}"></script>
+			<script src="{%static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>

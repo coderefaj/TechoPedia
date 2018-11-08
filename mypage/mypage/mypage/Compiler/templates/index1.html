@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Python compiler</title>
+
+<meta charset="utf-8">
+	{% load staticfiles %}
+    {% load crispy_forms_tags %}
+  	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	<link rel="stylesheet" href="{% static 'css/vs.css' %}">
+</head>
+
+
+
+
+<script>
+
+</script>
+
+
+<style>
+body{
+i
+background-color:000066;
+}
+#editor {
+		margin: 0;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+}
+
+textarea , iframe{
+	margin-left: 20px;
+	border:2px solid #ddd;
+	height:500px;
+	width:90%;
+color:#000;
+outline:none;
+border:#35a5e5 1px solid;
+font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+-webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+-moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    background-color:#F7F7F7;
+}
+
+</style>
+
+
+<body>
+<a href="https://github.com/syedjafer">
+         <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+
+
+ <center><h1>Welcome You to the online Code Editor of  python.</h1></center>
+
+ <table width = "100%" border = "0" cellspacing="5" cellpadding="5">
+
+
+     <a style:{color:black;text-decoration:none;} href="{% static 'temp.py'  %}" download>Download the file<i class="fa fa-download" aria-hidden="true"></i></a>     <tr>
+	<td width = "50%" scope = "col">&nbsp;</td>
+	<td width = "50%" scope ="col" align="left">
+
+	</td>
+	</tr>
+
+
+<td>
+<form action="{% url 'index' %}" method="POST">
+{% csrf_token %}
+
+{{ forms|crispy }}
+	{% if txt %}
+
+
+	<label for="txt">Program : </label><br>
+	<!-- <input type="text" name="program" id="program" required/> -->
+	<textarea class="code" name="txt" id="txt" required>{{ txt }}</textarea>
+	<br><br>
+<button type="submit" class="btn btn-primary">Run
+	</button>
+
+</form>
+<br>
+{% else %}
+<label for="txt">Program : </label><br>
+	<!-- <input type="text" name="program" id="program" required/> -->
+	<textarea class="code" name="txt" id="txt" required>print "hello world"</textarea>
+	<br><br>
+
+
+<button type="submit" class="btn btn-primary">Run
+	</button>
+
+</form>
+<br>
+{% endif %}
+</td>
+
+
+
+
+
+<td>
+<strong>Output:</strong>
+<div id="output">
+{% if output %}
+
+
+<textarea id="output" readonly>
+{{ output }}
+</textarea>
+
+{% else %}
+
+
+<textarea id="output" readonly>
+"Happy Coding You will see your output here !"
+</textarea>>
+
+
+
+
+
+{% endif %}
+</div>
+
+</td>
+</div>
+</div>
+</table>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+</body>
+</html>
+
+</body>
+</html>

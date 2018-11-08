@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'pacifio';
+  src: url('Pacifico-Regular.ttf');
+  
+
+}
+body{
+  background-image: url('giphy.mp4');
+  background-size: cover;
+}
+
+.heading{
+  font-family:pacifio;
+}
+
+.home{
+  margin-top: 200px;
+  text-align: center;
+  font-family: pacifio ;
+  
+}
+
+.home_prob{
+  /*margin-top: 200px;*/
+  text-align: center;
+  font-family: pacifio ;  
+}
+.jumbotron{
+  margin : 0 50px 0 50px;
+  border-radius: 5px;
+  text-align: center;
+}
+.controls ul{
+  visibility: hidden;
+}
+

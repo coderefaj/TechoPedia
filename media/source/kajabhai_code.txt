@@ -1,0 +1,12 @@
+#include<stdio.h>
+int main()
+{
+    int itr , arr[5] , sum = 0 ; 
+    for(itr=0;itr<5;itr++)
+    {
+        scanf("%d",&arr[itr]);
+        sum += arr[itr];
+    }
+    printf("15");
+    
+}

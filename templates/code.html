@@ -1,0 +1,62 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <title>Dev Nation</title>
+    {% include 'css.html' %}
+    </head>
+    <body>
+    {% include 'code_nav.html' %}
+    {% load staticfiles %}
+    <div class="group_center">
+      <div class="question_display">
+        <h2> {{ problem.name }}</h2>
+          {{ problem.statement }}
+      </div>
+      
+        <!-- Programming Languages -->
+      <select id="programming_lang">
+        <!-- Language order -->
+        <option value="gcc">C</option>
+        <option value="c++">C++</option>
+        <option value="javac">Java</option>
+      </select>
+        
+      <h2 style="color:white;margin-left: 50px;">Sample Inputs and Outputs</h2>
+      {% for inp , out in test_case  %}
+        <div class="row">
+          <div class="col-sm-6" ><div id="sample_input" >{{ inp|linebreaks  }}</div></div>
+          <div class="col-sm-6" ><div id="sample_output">{{ out|linebreaks }}</div></div>
+        </div>
+        <br>
+        <br>
+      {% endfor %}
+      <br><br>
+
+      <!-- Code Editor -->
+      <div id="editor">{{code}}</div>
+
+      <div id="run">
+            <button type="button" id = "run_button" class="btn btn-success">Run</button>
+            <button type="button" id="submit_button" class="btn btn-success">Submit</button>
+      </div>
+      <br>
+      <br>
+      <br>
+   
+        <div class="row">
+            <div class="col-sm-6" ><b id="general">Output Status : </b><div id="output" ></div></div>
+            <div class="col-sm-6" ><b id="general">Error</b><div id="error" ></div></div>
+        </div>
+        <br>
+        <br>
+        <!-- Area to show the passed testcases -->
+        <div class="row" id="testcase_output"></div>
+      
+      <br><br>
+      <br><br>
+      <br><br>
+    </div> 
+    {% include "js.html" %}
+
+</body>
+</html>
